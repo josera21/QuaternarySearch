@@ -2,21 +2,21 @@ num_preguntas = 0
 
 def busquedaCuaternariaV2(vector, elemento, inicio, final):
     while final >= 0:
-        p1 = inicio + ((final - inicio) / 4)
-        p2 = inicio + ((final - inicio) / 2)
-        p3 = inicio + (3*(final - inicio) / 4)
+        p1 = int(inicio + ((final - inicio) / 4))
+        p2 = int(inicio + ((final - inicio) / 2))
+        p3 = int(inicio + (3*(final - inicio) / 4))
 
         if vector[p1] == elemento:
             actualizar_contador(1)
-            return vector[p1]
+            return p1
         elif vector[p2] == elemento:
             actualizar_contador(2)
-            return vector[p2]
+            return p2
         elif vector[p3] == elemento:
             actualizar_contador(3)
-            return vector[p3]
+            return p3
         
-        # Se incrementa el numero de preguntas a 3, ya que pregunto en las 3 partes del vector.
+        # Se incrementa el numero de preguntas a 3, ya que pregunto en las 3 partes del vector y no lo encontro.
         actualizar_contador(3)
 
         if inicio == final or inicio > final:
@@ -43,8 +43,8 @@ if __name__ == '__main__':
     valor_encontrado = busquedaCuaternariaV2(A, nro_a_buscar, 0, len(A))
 
     if valor_encontrado:
-        print "Elemento encontrado: ", valor_encontrado
-        print "Preguntas: ", num_preguntas
+        print("Encontrado en la posicion: ", valor_encontrado)
+        print("Preguntas: ", num_preguntas)
     else:
-        print "Elemento no encontrado"
-        print "Preguntas: ", num_preguntas
+        print("Elemento no encontrado")
+        print("Preguntas: ", num_preguntas)
